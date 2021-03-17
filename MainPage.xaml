@@ -1,0 +1,432 @@
+﻿<Page
+    x:Class="Sudoku.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sudoku"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Height="460" Width="360" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border11" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block11" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border12" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block12" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border13" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block13" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border21" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block21" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border22" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block22" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border23" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block23" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border31" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block31" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border32" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block32" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border33" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block33" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border14" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block14" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border15" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block15" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border16" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block16" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border24" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block24" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border25" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block25" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border26" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block26" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border34" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block34" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border35" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block35" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border36" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block36" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="2" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border17" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block17" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border18" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block18" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border19" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block19" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border27" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block27" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border28" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block28" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border29" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block29" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border37" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block37" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border38" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block38" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border39" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block39" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border41" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block41" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border42" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block42" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border43" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block43" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border51" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block51" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border52" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block52" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border53" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block53" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border61" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block61" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border62" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block62" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border63" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block63" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border44" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block44" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border45" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block45" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border46" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block46" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border54" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block54" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border55" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block55" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border56" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block56" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border64" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block64" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border65" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block65" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border66" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block66" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border47" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block47" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border48" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block48" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border49" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block49" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border57" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block57" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border58" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block58" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border59" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block59" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border67" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block67" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border68" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block68" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border69" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block69" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border71" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block71" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border72" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block72" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border73" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block73" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border81" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block81" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border82" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block82" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border83" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block83" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border91" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block91" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border92" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block92" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border93" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block93" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border74" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block74" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border75" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block75" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border76" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block76" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border84" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block84" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border85" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block85" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border86" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block86" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border94" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block94" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border95" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block95" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border96" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block96" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="2" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border77" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block77" Text="1" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border78" Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block78" Text="2" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border79" Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block79" Text="3" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border87" Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block87" Text="4" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border88" Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block88" Text="5" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border89" Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block89" Text="6" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border97" Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block97" Text="7" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border98" Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block98" Text="8" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+            <Border x:Name="Border99" Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="Transparent">
+                <TextBlock x:Name="Block99" Text="9" FontSize="24" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Padding="20,20,20,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select1" Text="1" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select2" Text="2" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select3" Text="3" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select4" Text="4" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="4" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select5" Text="5" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="5" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select6" Text="6" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="6" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select7" Text="7" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="7" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select8" Text="8" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="8" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select9" Text="9" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="9" BorderBrush="White" BorderThickness="1" Margin="2" Padding="2,2,2,2">
+                <TextBlock x:Name="Select0" Text="X" FontSize="18" HorizontalAlignment="Center" Tapped="BlockTapped"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Content="Solve" HorizontalAlignment="Center" Tapped="Solve"/>
+        </Grid>
+    </Grid>
+</Page>
