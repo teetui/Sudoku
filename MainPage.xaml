@@ -422,11 +422,13 @@
         <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Padding="5,5,5,5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Content="Solve" HorizontalAlignment="Center" Tapped="Solve"/>
+            <Button Grid.Row="0" Grid.Column="0" Content="New" HorizontalAlignment="Center" Tapped="NewButton"/>
+            <Button Grid.Row="0" Grid.Column="1" Content="Solve" HorizontalAlignment="Center" Tapped="SolveButton"/>
         </Grid>
     </Grid>
 </Page>

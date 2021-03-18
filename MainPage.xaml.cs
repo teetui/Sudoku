@@ -54,7 +54,7 @@ namespace Sudoku
         public MainPage()
         {
             this.InitializeComponent();
-            sudoku.Generate(sudoku.EASY);
+            sudoku.Generate(Difficulty.SIMPLE);
             FillBoard();
         }
 
@@ -100,10 +100,21 @@ namespace Sudoku
             currentBlock = textBlock;
         }
 
-        private void Solve(object sender, TappedRoutedEventArgs e)
+        private void SolveButton(object sender, TappedRoutedEventArgs e)
         {
             sudoku.Solve(sudoku.Board);
             FillBoard();
+        }
+
+        private async void NewButton(object sender, TappedRoutedEventArgs e)
+        {
+            NewBoardDialog dialog = new NewBoardDialog();
+            await dialog.ShowAsync();
+            if (dialog.newGame)
+            {
+                sudoku.Generate(dialog.level);
+                FillBoard();
+            }
         }
     }
 }

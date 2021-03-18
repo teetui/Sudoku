@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace Sudoku
 {
+    public enum Difficulty
+    {
+        SIMPLE,
+        EASY,
+        MEDIUM,
+        HARD
+    }
+
     class Sudoku
     {
         public Cell[,] Board
-        {get; set; }
-
-        public readonly int SIMPLE = 26;
-        public readonly int EASY   = 24;
-        public readonly int MEDIUM = 22;
-        public readonly int HARD = 20;
+        { get; set; }
 
         private void Initialize()
         {
@@ -72,9 +75,26 @@ namespace Sudoku
             return true;
         }
 
-        private void Remove(int level)
+        private void Remove(Difficulty d)
         {
-            int row, col;
+            int row, col, level;
+
+            switch (d)
+            {
+                case Difficulty.EASY:
+                    level = 24;
+                    break;
+                case Difficulty.MEDIUM:
+                    level = 22;
+                    break;
+                case Difficulty.HARD:
+                    level = 20;
+                    break;
+                default:
+                    level = 26;
+                    break;
+            }
+
             for (int i = 81; i > level; i--)
             {
                 do
@@ -87,11 +107,11 @@ namespace Sudoku
             }
         }
 
-        public void Generate(int level)
+        public void Generate(Difficulty d)
         {
             Initialize();
             Solve(Board);
-            Remove(level);
+            Remove(d);
         }
 
         public bool IsSolved()
