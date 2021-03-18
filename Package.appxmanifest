@@ -9,7 +9,7 @@
   <Identity
     Name="b89c4deb-6893-4054-95a7-d88ac50bff4d"
     Publisher="CN=Teetui"
-    Version="1.0.12.0" />
+    Version="1.0.13.0" />
 
   <mp:PhoneIdentity PhoneProductId="b89c4deb-6893-4054-95a7-d88ac50bff4d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

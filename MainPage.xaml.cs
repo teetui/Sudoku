@@ -58,12 +58,28 @@ namespace Sudoku
             FillBoard();
         }
 
+        private async void NewBoard()
+        {
+            NewBoardDialog dialog = new NewBoardDialog();
+            await dialog.ShowAsync();
+            if (dialog.newGame)
+            {
+                sudoku.Generate(dialog.level);
+                FillBoard();
+            }
+        }
+
         private void BlockTapped(object sender, TappedRoutedEventArgs e)
         {
             TextBlock textBlock = (TextBlock)sender;
 
             if (currentBlock != null)
             {
+                if (PencilMarks.IsChecked == true)
+                    currentBlock.FontSize = 12;
+                else
+                    currentBlock.FontSize = 24;
+
                 if (textBlock.Text.Equals("X"))
                     currentBlock.Text = "";
                 else
@@ -71,9 +87,7 @@ namespace Sudoku
             }
 
             if (sudoku.IsSolved())
-            {
-                //                MessageBox.Show("You win.");
-            }
+                NewBoard();
         }
 
         private void BorderTapped(object sender, TappedRoutedEventArgs e)
@@ -86,6 +100,7 @@ namespace Sudoku
 
             // highlight the tapped game block 
             textBlock.Foreground = new SolidColorBrush(Windows.UI.Colors.Yellow);
+            textBlock.FontWeight = Windows.UI.Text.FontWeights.Normal;
             border.BorderThickness = new Thickness(2);
             border.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Yellow);
 
@@ -102,19 +117,24 @@ namespace Sudoku
 
         private void SolveButton(object sender, TappedRoutedEventArgs e)
         {
+            for (int row = 0; row < 9; row++)
+                for (int col = 0; col < 9; col++)
+                {
+                    TextBlock textBlock = (TextBlock)this.FindName("Block" + (row + 1).ToString() + (col + 1).ToString());
+                    if (textBlock.FontSize == 12)
+                    {
+                        textBlock.Text = "";
+                        textBlock.FontSize = 24;
+                    }
+                }
+            
             sudoku.Solve(sudoku.Board);
             FillBoard();
         }
 
-        private async void NewButton(object sender, TappedRoutedEventArgs e)
+        private void NewButton(object sender, TappedRoutedEventArgs e)
         {
-            NewBoardDialog dialog = new NewBoardDialog();
-            await dialog.ShowAsync();
-            if (dialog.newGame)
-            {
-                sudoku.Generate(dialog.level);
-                FillBoard();
-            }
+            NewBoard();
         }
     }
 }
