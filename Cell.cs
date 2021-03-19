@@ -10,5 +10,6 @@ namespace Sudoku
     {
         public int value;
         public bool original;
+        public bool pencilmark;
     }
 }

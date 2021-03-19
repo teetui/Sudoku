@@ -73,21 +73,45 @@ namespace Sudoku
         {
             TextBlock textBlock = (TextBlock)sender;
 
+            // if a board block is selected...
             if (currentBlock != null)
             {
+                // set font size for full entry or pencilmark
                 if (PencilMarks.IsChecked == true)
+                {
+                    getCell(currentBlock).pencilmark = true;
                     currentBlock.FontSize = 12;
+                }
                 else
+                {
+                    getCell(currentBlock).pencilmark = false;
                     currentBlock.FontSize = 24;
+                }
 
+                // if clearing a board block...
                 if (textBlock.Text.Equals("X"))
+                {
+                    // clear both the control and the Sudoku value
                     currentBlock.Text = "";
-                else
-                    currentBlock.Text = textBlock.Text;
-            }
+                    getCell(currentBlock).value = 0;
+                }
+                else if (!textBlock.Text.Equals(""))
+                {
+                    int row = currentBlock.Name[5] - 49;
+                    int col = currentBlock.Name[6] - 49;
 
-            if (sudoku.IsSolved())
-                NewBoard();
+                    if (Int32.TryParse(textBlock.Text, out int value))
+                    {
+                        currentBlock.Text = textBlock.Text;
+                        sudoku.Board[row, col].value = value;
+                    }
+                }
+
+                if (sudoku.IsSolved())
+                    StatusMessage.Text = "You win!";
+                else
+                    StatusMessage.Text = "";
+            }
         }
 
         private void BorderTapped(object sender, TappedRoutedEventArgs e)
@@ -130,6 +154,10 @@ namespace Sudoku
             
             sudoku.Solve(sudoku.Board);
             FillBoard();
+            if(sudoku.IsSolved())
+                StatusMessage.Text = "Generated solution.";
+            else
+                StatusMessage.Text = "Block(s) incorrectly filled. Not currently solvable.";
         }
 
         private void NewButton(object sender, TappedRoutedEventArgs e)
